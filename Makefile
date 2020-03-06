@@ -1,4 +1,4 @@
-OUTPUT_NAME = projekt1
+OUTPUT_NAME = projekt-1
 
 FLAGS = -Wall -pedantic
 CC = g++
