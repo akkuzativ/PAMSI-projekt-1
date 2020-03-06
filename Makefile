@@ -19,3 +19,4 @@ o:
 
 clean:
 	rm -r $(OBJ_PATH)
+	rm $(OUTPUT_NAME)
