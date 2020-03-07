@@ -1,3 +1,6 @@
+#ifndef ARRAYMANAGER_HH
+#define ARRAYMANAGER_HH
+
 class ArrayManager
 {
 private:
@@ -10,3 +13,5 @@ public:
     void SortArray();
     void PrintArrayFormatted();
 };
+
+#endif
