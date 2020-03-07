@@ -18,5 +18,6 @@ o:
 	mv *.o $(OBJ_PATH)
 
 clean:
-	rm -r $(OBJ_PATH)
-	rm $(OUTPUT_NAME)
+	rm -fr $(OBJ_PATH)
+	rm -f $(OUTPUT_NAME)
+	rm -f *.o
