@@ -1,1 +1,0 @@
-#include "../inc/ArrayManager.hh"
