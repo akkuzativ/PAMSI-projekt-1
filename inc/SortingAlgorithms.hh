@@ -3,17 +3,17 @@
 
 
 
-template<typename T>
-void quicksort(T * array);
+template <typename T>
+void Quicksort(T * array);
 
-template<typename T>
-void heapsort(T * array);
+template <typename T>
+void Heapsort(T * array);
 
-template<typename T>
-void mergesort(T * array);
+template <typename T>
+void Mergesort(T * array);
 
-template<typename T>
-void introsort(T * array);
+template <typename T>
+void Introsort(T * array);
 
 
 
