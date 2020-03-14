@@ -10,7 +10,7 @@ template <typename T>
 int GetMiddleIndex(T * array);
 
 template <typename T>
-bool CheckIfSorted(T * array);
+bool IsSorted(T * array);
 
 template <typename T>
 void PrintArray(T * array);
