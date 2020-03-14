@@ -4,16 +4,16 @@
 
 
 template <typename T>
-void Quicksort(T * array);
+void Quicksort(T* array, const char order);
 
 template <typename T>
-void Heapsort(T * array);
+void Heapsort(T* array, const char order);
 
 template <typename T>
-void Mergesort(T * array);
+void Mergesort(T* array, const char order);
 
 template <typename T>
-void Introsort(T * array);
+void Introsort(T* array, const char order);
 
 
 
