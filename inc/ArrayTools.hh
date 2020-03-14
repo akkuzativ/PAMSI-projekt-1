@@ -15,6 +15,12 @@ bool IsSorted(T * array);
 template <typename T>
 void PrintArray(T * array);
 
+template <typename T>
+void FillWithSortedData(T * array);
+
+template <typename T>
+void FillWithRandomData(T * array);
+
 
 
 #endif
