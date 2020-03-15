@@ -3,48 +3,77 @@
 
 #include <iostream>
 #include <random>
+#include <algorithm>
 
 
 
-template <typename T> bool IsSorted(T* array, int length)
+namespace ArrayTools
 {
-    if (length==0 || length==1)
+    template <typename T> bool CompareValues(const T& value1, const T& value2)
     {
+        return value1 > value2;
+    }
+
+    template <typename T> bool IsSorted(T* array, int length)
+    {
+        if (length==0 || length==1)
+        {
+            return true;
+        }
+        for (int i=1; i<length; i++)
+        {
+            if (array[i] < array[i-1])
+            {
+                return false;
+            }
+        }
         return true;
     }
-    for (int i=1; i<length; i++)
+
+    template <typename T> void PrintFromattedArray(T* array, int length)
     {
-        if (array[i] < array[i-1])
+        std::cout << '{' << array[0];
+        for (int i = 1; i < length; i++)
         {
-            return false;
+            std::cout << ',' << array[i];
+        }
+        std::cout << '}' << std::endl;
+    }
+
+    template <typename T> void FillRandom(T* array, int length)
+    {
+        for (int i=0; i<length; i++)
+        {
+            array[i] = rand() % 100;
         }
     }
-    return true;
-}
 
-template <typename T> void PrintFromattedArray(T* array, int length)
-{
-    std::cout << '{' << array[0];
-    for (int i = 1; i < length; i++)
+    template <typename T> T* CreateArray(int length)
     {
-        std::cout << ',' << array[i];
+        return new T[length];
     }
-    std::cout << '}' << std::endl;
-}
 
-template <typename T> void FillRandom(T* array, int length)
-{
-    for (int i=0; i<length; i++)
+
+
+    
+
+    template <typename T> void FillAndSortFromBeginning(T* array, int length, float percentSorted, const char order)
     {
-        array[i] = rand();
+        FillRandom(array, length);  
+        int lastIndex = ceil(length*percentSorted);
+        switch(order)
+        {
+          case '<':
+            std::sort(array, array + lastIndex);
+            break;
+
+          case '>':
+            std::sort(array, array + lastIndex);
+            break;
+        }
     }
-}
 
-template <typename T> T* CreateArray(int length)
-{
-    return new T[length];
 }
-
 
 
 #endif
