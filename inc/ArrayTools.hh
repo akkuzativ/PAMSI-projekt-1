@@ -66,11 +66,11 @@ namespace ArrayTools
         switch(order)
         {
           case '<':
-            std::sort(array, array + lastIndex);
+            std::sort(array, array + lastIndex, std::less<T>());
             break;
 
           case '>':
-            std::sort(array, array + lastIndex, CompareValues(array, array + lastIndex));
+            std::sort(array, array + lastIndex, std::greater<T>());
             break;
         }
     }

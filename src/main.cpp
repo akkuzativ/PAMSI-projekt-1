@@ -15,8 +15,7 @@ int main()
 
     int* int_array = ArrayTools::CreateArray<int>(N);
     float* float_array = ArrayTools::CreateArray<float>(N);
-    
-    
+
     ArrayTools::FillRandom(int_array, N);
     ArrayTools::FillRandom(float_array, N);
     ArrayTools::PrintFromattedArray(int_array, N);
@@ -31,4 +30,5 @@ int main()
 
 
     return 0;
+
 }
