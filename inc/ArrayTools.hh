@@ -9,12 +9,14 @@
 
 namespace ArrayTools
 {
-    template <typename T> bool CompareValues(const T& value1, const T& value2)
+    template <typename T>
+    bool CompareValues(const T& value1, const T& value2)
     {
-        return value1 > value2;
+        return (value1<value2);
     }
 
-    template <typename T> bool IsSorted(T* array, int length)
+    template <typename T>
+    bool IsSorted(T* array, int length)
     {
         if (length==0 || length==1)
         {
@@ -30,7 +32,8 @@ namespace ArrayTools
         return true;
     }
 
-    template <typename T> void PrintFromattedArray(T* array, int length)
+    template <typename T>
+    void PrintFromattedArray(T* array, int length)
     {
         std::cout << '{' << array[0];
         for (int i = 1; i < length; i++)
@@ -40,7 +43,8 @@ namespace ArrayTools
         std::cout << '}' << std::endl;
     }
 
-    template <typename T> void FillRandom(T* array, int length)
+    template <typename T>
+    void FillRandom(T* array, int length)
     {
         for (int i=0; i<length; i++)
         {
@@ -48,16 +52,14 @@ namespace ArrayTools
         }
     }
 
-    template <typename T> T* CreateArray(int length)
+    template <typename T>
+    T* CreateArray(int length)
     {
         return new T[length];
-    }
+    }    
 
-
-
-    
-
-    template <typename T> void FillAndSortFromBeginning(T* array, int length, float percentSorted, const char order)
+    template <typename T>
+    void FillRandomAndSortFromBeginning(T* array, int length, float percentSorted, const char order)
     {
         FillRandom(array, length);  
         int lastIndex = ceil(length*percentSorted);
@@ -68,7 +70,7 @@ namespace ArrayTools
             break;
 
           case '>':
-            std::sort(array, array + lastIndex);
+            std::sort(array, array + lastIndex, CompareValues(array, array + lastIndex));
             break;
         }
     }

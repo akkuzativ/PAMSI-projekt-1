@@ -25,7 +25,7 @@ int main()
     std::cout << ArrayTools::IsSorted(float_array, N) << std::endl;
 
     int* array3 = ArrayTools::CreateArray<int>(N);
-    ArrayTools::FillAndSortFromBeginning(array3, N, 1, '<');
+    ArrayTools::FillRandomAndSortFromBeginning(array3, N, 1, '<');
     ArrayTools::PrintFromattedArray(array3, N);
     std::cout << ArrayTools::IsSorted(array3, N) << std::endl;
 
