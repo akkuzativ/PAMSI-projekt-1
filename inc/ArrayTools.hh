@@ -6,27 +6,39 @@
 
 
 
-
-
-template <typename T> int GetLength(T * array)
+template <typename T> bool IsSorted(T* array, int length)
 {
-    return *(&array + 1) - array;
-}
-
-template <typename T> int GetMiddleIndex(T * array);
-
-template <typename T> bool IsSorted(T * array);
-
-template <typename T> void PrintArray(T * array)
-{
-    for(int i = 0; array[i]!='\0'; i++)
+    if (length==0 || length==1)
     {
-        std::cout << array[i] << ", ";
+        return true;
     }
-    std::cout << std::endl;
+    for (int i=1; i<length; i++)
+    {
+        if (array[i] < array[i-1])
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
-template <typename T> void FillWithSortedData(T * array);
+template <typename T> void PrintFromattedArray(T* array, int length)
+{
+    std::cout << '{' << array[0];
+    for (int i = 1; i < length; i++)
+    {
+        std::cout << ',' << array[i];
+    }
+    std::cout << '}' << std::endl;
+}
+
+template <typename T> void FillRandom(T* array, int length)
+{
+    for (int i=0; i<length; i++)
+    {
+        array[i] = rand();
+    }
+}
 
 template <typename T> T* CreateArray(int length)
 {
