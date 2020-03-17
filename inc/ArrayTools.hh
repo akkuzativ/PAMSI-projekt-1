@@ -9,11 +9,6 @@
 
 namespace ArrayTools
 {
-    template <typename T>
-    bool CompareValues(const T& value1, const T& value2)
-    {
-        return (value1<value2);
-    }
 
     template <typename T>
     bool IsSorted(T* array, int length)
@@ -32,6 +27,7 @@ namespace ArrayTools
         return true;
     }
 
+    
     template <typename T>
     void PrintFromattedArray(T* array, int length)
     {
@@ -43,6 +39,7 @@ namespace ArrayTools
         std::cout << '}' << std::endl;
     }
 
+    
     template <typename T>
     void FillRandom(T* array, int length)
     {
@@ -52,12 +49,14 @@ namespace ArrayTools
         }
     }
 
+    
     template <typename T>
     T* CreateArray(int length)
     {
         return new T[length];
     }    
 
+    
     template <typename T>
     void FillRandomAndSortFromBeginning(T* array, int length, float percentSorted, const char order)
     {
@@ -75,6 +74,7 @@ namespace ArrayTools
         }
     }
 
+    
 }
 
 
