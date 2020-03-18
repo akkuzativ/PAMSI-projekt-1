@@ -10,6 +10,20 @@
 namespace ArrayTools
 {
 
+    //not sure about this one
+    template <typename T>
+    class ExtendedArray
+    {
+    private:
+        T* data;
+        int length;
+    public:
+        int getLength();
+        ExtendedArray(int length);
+        T& operator [](int index);
+    };
+
+
     template <typename T>
     bool IsSorted(T* array, int length, const char order)
     {
