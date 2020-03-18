@@ -11,25 +11,35 @@ namespace ArrayTools
 {
 
     template <typename T>
-    bool IsSorted(T* array, int length)
+    bool IsSorted(T* array, int length, const char order)
     {
         if (length==0 || length==1)
         {
             return true;
         }
-        for (int i=1; i<length; i++)
+        switch(order)
         {
-            if (array[i] < array[i-1])
+          case '<':
+            for (int i=1; i<length; i++)
             {
-                return false;
+                if (array[i] < array[i-1]) return false;
             }
+            break;
+
+          case '>':
+            for (int i=1; i<length; i++)
+            {
+                if (array[i] > array[i-1]) return false;
+            }
+            break;
         }
+
         return true;
     }
 
     
     template <typename T>
-    void PrintFromattedArray(T* array, int length)
+    void PrintFromatted(T* array, int length)
     {
         std::cout << '{' << array[0];
         for (int i = 1; i < length; i++)
@@ -41,26 +51,13 @@ namespace ArrayTools
 
     
     template <typename T>
-    void FillRandom(T* array, int length)
+    void Fill(T* array, int length, float percentSorted, const char order)
     {
         for (int i=0; i<length; i++)
         {
             array[i] = rand() % 100;
         }
-    }
 
-    
-    template <typename T>
-    T* CreateArray(int length)
-    {
-        return new T[length];
-    }    
-
-    
-    template <typename T>
-    void FillRandomAndSortFromBeginning(T* array, int length, float percentSorted, const char order)
-    {
-        FillRandom(array, length);  
         int lastIndex = ceil(length*percentSorted);
         switch(order)
         {
@@ -72,6 +69,13 @@ namespace ArrayTools
             std::sort(array, array + lastIndex, std::greater<T>());
             break;
         }
+    }
+
+
+    template <typename T>
+    T* Create(int length)
+    {
+        return new T[length];
     }
 
     
