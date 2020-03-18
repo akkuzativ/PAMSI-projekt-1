@@ -92,6 +92,13 @@ namespace ArrayTools
         return new T[length];
     }
 
+
+    template <typnemae T>
+    int Pivot(T* array, int length)
+    {
+        
+    }
+
     
 }
 
