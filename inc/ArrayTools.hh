@@ -10,19 +10,6 @@
 namespace ArrayTools
 {
 
-    //not sure about this one
-    template <typename T>
-    class ExtendedArray
-    {
-    private:
-        T* data;
-        int length;
-    public:
-        int getLength();
-        ExtendedArray(int length);
-        T& operator [](int index);
-    };
-
 
     template <typename T>
     bool IsSorted(T* array, int length, const char order)
@@ -31,6 +18,7 @@ namespace ArrayTools
         {
             return true;
         }
+
         switch(order)
         {
           case '<':
@@ -53,7 +41,7 @@ namespace ArrayTools
 
     
     template <typename T>
-    void PrintFromatted(T* array, int length)
+    void PrintFormatted(T* array, int length)
     {
         std::cout << '{' << array[0];
         for (int i = 1; i < length; i++)
@@ -93,13 +81,23 @@ namespace ArrayTools
     }
 
 
-    template <typnemae T>
-    int Pivot(T* array, int length)
+/*
+    template <typename T>
+    int FindPivot(T* array, int length)
     {
-        
+
+    }
+*/
+
+    template <typename T>
+    void SwapValues(T& value1, T& value2)
+    {
+        T helper = value1;
+        value1 = value2;
+        value2 = helper;
     }
 
-    
+
 }
 
 

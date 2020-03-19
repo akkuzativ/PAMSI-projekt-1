@@ -1,7 +1,8 @@
 #ifndef SORTINGALGORITHMS_HH
 #define SORTINGALGORITHMS_HH
 
-#include <iostream>
+#include "../inc/ArrayTools.hh"
+
 
 
 
@@ -20,14 +21,14 @@ void Heapsort(T* array, int length, const char order)
 
 
 template <typename T>
-void Mergesort(T* array, int length, const char order);
+void Mergesort(T* array, int length, const char order)
 {
 
 }
 
 
 template <typename T>
-void Introsort(T* array, int length, const char order);
+void Introsort(T* array, int length, const char order)
 {
 
 }

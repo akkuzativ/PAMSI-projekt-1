@@ -9,16 +9,25 @@ int main()
 {
 
     srand(time(NULL));
-    int N = 10;
+    int N = 3;
 
-    int* int_array = ArrayTools::Create<int>(N);
-    float* float_array = ArrayTools::Create<float>(N);
+    int* array1 = ArrayTools::Create<int>(N);
+    int* array2 = ArrayTools::Create<int>(N);
 
-    ArrayTools::Fill(int_array, N, 1, '>');
-    ArrayTools::PrintFromatted(int_array, N);
+    ArrayTools::Fill(array1, N, 1, '>');
+    ArrayTools::PrintFormatted(array1, N);
 
-    ArrayTools::Fill(float_array, N, 1, '>');
-    ArrayTools::PrintFromatted(float_array, N);
+    ArrayTools::Fill(array2, N, 1, '<');
+    ArrayTools::PrintFormatted(array2, N);
+
+    ArrayTools::SwapValues(array1[0], array2[2]);
+
+    std::cout << std::endl;
+
+    ArrayTools::PrintFormatted(array1, N);
+
+    ArrayTools::PrintFormatted(array2, N);
+
 
 
     return 0;
