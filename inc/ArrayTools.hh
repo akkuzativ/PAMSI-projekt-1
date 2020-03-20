@@ -22,14 +22,14 @@ namespace ArrayTools
         switch(order)
         {
           case '<':
-            for (int i=1; i<length; i++)
+            for (int i=1; i < length; i++)
             {
                 if (array[i] < array[i-1]) return false;
             }
             break;
 
           case '>':
-            for (int i=1; i<length; i++)
+            for (int i=1; i < length; i++)
             {
                 if (array[i] > array[i-1]) return false;
             }
@@ -48,7 +48,7 @@ namespace ArrayTools
         {
             std::cout << ',' << array[i];
         }
-        std::cout << '}' << std::endl;
+        std::cout << '}' << '\n';
     }
 
 
@@ -57,7 +57,7 @@ namespace ArrayTools
     {
         for (int i=0; i<length; i++)
         {
-            array[i] = rand() % 100;
+            array[i] = rand() % 1000;
         }
 
         int lastIndex = ceil(length*percentSorted);
@@ -98,9 +98,6 @@ namespace ArrayTools
         value2 = helper;
     }
 
-
-
-    
 
 
 }

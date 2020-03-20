@@ -22,12 +22,11 @@ int main()
 
     ArrayTools::SwapValues(array1[0], array2[2]);
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
     ArrayTools::PrintFormatted(array1, N);
 
     ArrayTools::PrintFormatted(array2, N);
-
 
 
     return 0;
