@@ -51,7 +51,7 @@ namespace ArrayTools
         std::cout << '}' << std::endl;
     }
 
-    
+
     template <typename T>
     void Fill(T* array, int length, float percentSorted, const char order)
     {
@@ -81,13 +81,14 @@ namespace ArrayTools
     }
 
 
-/*
-    template <typename T>
-    int FindPivot(T* array, int length)
-    {
 
+    template <typename T>
+    int Pivot_Partition(T* array, int length)
+    {
+        int pivotindex = 0;
+        return pivotindex;
     }
-*/
+
 
     template <typename T>
     void SwapValues(T& value1, T& value2)
@@ -96,6 +97,10 @@ namespace ArrayTools
         value1 = value2;
         value2 = helper;
     }
+
+
+
+    
 
 
 }
