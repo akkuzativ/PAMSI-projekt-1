@@ -12,9 +12,9 @@ namespace ArrayTools
 
 
     template <typename T>
-    bool IsSorted(T* array, int length, const char order)
+    bool IsSorted(T* array, int endPoint, const char order)
     {
-        if (length==0 || length==1)
+        if (endPoint==0 || endPoint==1)
         {
             return true;
         }
@@ -22,14 +22,14 @@ namespace ArrayTools
         switch(order)
         {
           case '<':
-            for (int i=1; i < length; i++)
+            for (int i=1; i < endPoint; i++)
             {
                 if (array[i] < array[i-1]) return false;
             }
             break;
 
           case '>':
-            for (int i=1; i < length; i++)
+            for (int i=1; i < endPoint; i++)
             {
                 if (array[i] > array[i-1]) return false;
             }
@@ -41,10 +41,10 @@ namespace ArrayTools
 
     
     template <typename T>
-    void PrintFormatted(T* array, int length)
+    void PrintFormatted(T* array, int endPoint)
     {
         std::cout << '{' << array[0];
-        for (int i = 1; i < length; i++)
+        for (int i = 1; i < endPoint; i++)
         {
             std::cout << ',' << array[i];
         }
@@ -53,14 +53,14 @@ namespace ArrayTools
 
 
     template <typename T>
-    void Fill(T* array, int length, float percentSorted, const char order)
+    void Fill(T* array, int endPoint, float percentSorted, const char order)
     {
-        for (int i=0; i<length; i++)
+        for (int i=0; i<endPoint; i++)
         {
             array[i] = rand() % 1000;
         }
 
-        int lastIndex = ceil(length*percentSorted);
+        int lastIndex = ceil(endPoint*percentSorted);
         switch(order)
         {
           case '<':
@@ -75,18 +75,9 @@ namespace ArrayTools
 
 
     template <typename T>
-    T* Create(int length)
+    T* Create(int endPoint)
     {
-        return new T[length];
-    }
-
-
-
-    template <typename T>
-    int Pivot_Partition(T* array, int length)
-    {
-        int pivotindex = 0;
-        return pivotindex;
+        return new T[endPoint];
     }
 
 
@@ -98,7 +89,12 @@ namespace ArrayTools
         value2 = helper;
     }
 
-
+    template <typename T>
+    void Partition(T* array, int startPoint, int endPoint, const char order)
+    {
+        int pivot;
+        return pivot;
+    }
 
 }
 

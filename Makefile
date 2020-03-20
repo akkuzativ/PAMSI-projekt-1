@@ -1,6 +1,6 @@
 OUTPUT_NAME = projekt-1
 
-FLAGS = -Wall -pedantic
+FLAGS = -Wall -pedantic -g
 CC = g++
 
 OBJ_PATH = obj/

@@ -7,28 +7,28 @@
 
 
 template <typename T>
-void Quicksort(T* array, int length, const char order)
-{
-    
-}
-
-
-template <typename T>
-void Heapsort(T* array, int length, const char order)
+void Quicksort(T* array, int startPoint, int endPoint, const char order)
 {
 
 }
 
 
 template <typename T>
-void Mergesort(T* array, int length, const char order)
+void Heapsort(T* array, int startPoint, int endPoint, const char order)
 {
 
 }
 
 
 template <typename T>
-void Introsort(T* array, int length, const char order)
+void Mergesort(T* array, int startPoint, int endPoint, const char order)
+{
+
+}
+
+
+template <typename T>
+void Introsort(T* array, int startPoint, int endPoint, const char order)
 {
 
 }
