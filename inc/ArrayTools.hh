@@ -62,7 +62,6 @@ namespace ArrayTools
 
         
         int lastIndex = ceil(0.01*endPoint*percentSorted);
-        std::cout << lastIndex << std::endl;
         switch(order)
         {
           case '<':
@@ -94,6 +93,25 @@ namespace ArrayTools
 
     template <typename T>
     int Partition(T* array, int startPoint, int endPoint, const char order)
+    {
+        int pivotIndex = endPoint;
+        int pivotValue = array[endPoint];
+        SwapValues(array[pivotIndex], array[endPoint]); //wyrzucenie pivota na koniec, tak zeby nie bral udzialu w podziale tablicy
+        int currentPosition = startPoint;
+        for (int i = startPoint; i < endPoint; i++)
+        {
+            if (array[i] < pivotValue)
+            {
+                SwapValues(array[i], array[currentPosition]);
+                currentPosition++;
+            }
+        }
+        SwapValues(array[currentPosition], array[pivotIndex]); //??
+        return currentPosition;
+    }
+
+    template <typename T>
+    void Merge()
     {
         
     }
