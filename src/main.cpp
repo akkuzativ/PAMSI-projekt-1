@@ -14,7 +14,8 @@ int main()
     int* array1 = ArrayTools::Create<int>(N);
     //int* array2 = ArrayTools::Create<int>(N);
 
-    ArrayTools::Fill(array1, N, 0, '>');
+    ArrayTools::PrintFormatted(array1, N);
+    ArrayTools::Fill(array1, N, 50, '<');
     ArrayTools::PrintFormatted(array1, N);
 
     //ArrayTools::Fill(array2, N, 1, '<');

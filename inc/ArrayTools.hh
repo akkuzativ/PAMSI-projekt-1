@@ -60,7 +60,9 @@ namespace ArrayTools
             array[i] = rand() % 1000;
         }
 
-        int lastIndex = ceil(endPoint*percentSorted);
+        
+        int lastIndex = ceil(0.01*endPoint*percentSorted);
+        std::cout << lastIndex << std::endl;
         switch(order)
         {
           case '<':
@@ -71,6 +73,7 @@ namespace ArrayTools
             std::sort(array, array + lastIndex, std::greater<T>());
             break;
         }
+        
     }
 
 
@@ -90,10 +93,9 @@ namespace ArrayTools
     }
 
     template <typename T>
-    void Partition(T* array, int startPoint, int endPoint, const char order)
+    int Partition(T* array, int startPoint, int endPoint, const char order)
     {
-        int pivot;
-        return pivot;
+        
     }
 
 }
