@@ -2,38 +2,39 @@
 #define SORTINGALGORITHMS_HH
 
 #include "../inc/ArrayTools.hh"
+#include "../inc/AlgorithmTools.hh"
 
 
 
 
 template <typename T>
-void Quicksort(T* array, int startPoint, int endPoint, const char order)
+void Quicksort(T* array, int startIndex, int endIndex, const char order)
 {
-    if(startPoint < endPoint)
+    if(startIndex < endIndex)
     {
-        int i = ArrayTools::Partition(array, startPoint, endPoint, order);
-        Quicksort(array,  startPoint, i-1, order);
-        Quicksort(array, i+1, endPoint, order);
+        int pivotIndex = Partition(array, startIndex, endIndex, order);
+        Quicksort(array,  startIndex, pivotIndex-1, order);
+        Quicksort(array, pivotIndex+1, endIndex, order);
     }
 }
 
 
 template <typename T>
-void Heapsort(T* array, int startPoint, int endPoint, const char order)
+void Heapsort(T* array, int startIndex, int endIndex, const char order)
 {
 
 }
 
 
 template <typename T>
-void Mergesort(T* array, int startPoint, int endPoint, const char order)
+void Mergesort(T* array, int startIndex, int endIndex, const char order)
 {
 
 }
 
 
 template <typename T>
-void Introsort(T* array, int startPoint, int endPoint, const char order)
+void Introsort(T* array, int startIndex, int endIndex, const char order)
 {
 
 }

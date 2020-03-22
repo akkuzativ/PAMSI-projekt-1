@@ -12,9 +12,9 @@ namespace ArrayTools
 
 
     template <typename T>
-    bool IsSorted(T* array, int endPoint, const char order)
+    bool IsSorted(T* array, int endIndex, const char order)
     {
-        if (endPoint==0 || endPoint==1)
+        if (endIndex==0 || endIndex==1)
         {
             return true;
         }
@@ -22,14 +22,14 @@ namespace ArrayTools
         switch(order)
         {
           case '<':
-            for (int i=1; i < endPoint; i++)
+            for (int i=1; i <= endIndex; i++)
             {
                 if (array[i] < array[i-1]) return false;
             }
             break;
 
           case '>':
-            for (int i=1; i < endPoint; i++)
+            for (int i=1; i <= endIndex; i++)
             {
                 if (array[i] > array[i-1]) return false;
             }
@@ -41,10 +41,10 @@ namespace ArrayTools
 
     
     template <typename T>
-    void PrintFormatted(T* array, int endPoint)
+    void PrintFormatted(T* array, int endIndex)
     {
         std::cout << '{' << array[0];
-        for (int i = 1; i < endPoint; i++)
+        for (int i = 1; i <= endIndex; i++)
         {
             std::cout << ',' << array[i];
         }
@@ -53,23 +53,23 @@ namespace ArrayTools
 
 
     template <typename T>
-    void Fill(T* array, int endPoint, float percentSorted, const char order)
+    void Fill(T* array, int endIndex, float percentSorted, const char order)
     {
-        for (int i=0; i<endPoint; i++)
+        for (int i=0; i<=endIndex; i++)
         {
             array[i] = rand() % 1000;
         }
 
         
-        int lastIndex = ceil(0.01*endPoint*percentSorted);
+        int lastIndexSorted = ceil(0.01*endIndex*percentSorted);
         switch(order)
         {
           case '<':
-            std::sort(array, array + lastIndex, std::less<T>());
+            std::sort(array, array + lastIndexSorted, std::less<T>());
             break;
 
           case '>':
-            std::sort(array, array + lastIndex, std::greater<T>());
+            std::sort(array, array + lastIndexSorted, std::greater<T>());
             break;
         }
         
@@ -77,9 +77,9 @@ namespace ArrayTools
 
 
     template <typename T>
-    T* Create(int endPoint)
+    T* Create(int elementAmount)
     {
-        return new T[endPoint];
+        return new T[elementAmount];
     }
 
 
@@ -91,30 +91,7 @@ namespace ArrayTools
         value2 = helper;
     }
 
-    template <typename T>
-    int Partition(T* array, int startPoint, int endPoint, const char order)
-    {
-        int pivotIndex = endPoint;
-        int pivotValue = array[endPoint];
-        SwapValues(array[pivotIndex], array[endPoint]); //wyrzucenie pivota na koniec, tak zeby nie bral udzialu w podziale tablicy
-        int currentPosition = startPoint;
-        for (int i = startPoint; i < endPoint; i++)
-        {
-            if (array[i] < pivotValue)
-            {
-                SwapValues(array[i], array[currentPosition]);
-                currentPosition++;
-            }
-        }
-        SwapValues(array[currentPosition], array[pivotIndex]); //??
-        return currentPosition;
-    }
 
-    template <typename T>
-    void Merge()
-    {
-        
-    }
 
 }
 
