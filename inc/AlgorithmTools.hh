@@ -55,7 +55,7 @@ void Heapify(T* array, int heapSize, int heapRoot)
     int startIndex = 2*heapRoot + 1;
     int endIndex = 2*heapRoot + 2;
 
-    if (endIndex < heapSize && array[startIndex] > array[largest] )
+    if (startIndex < heapSize && array[startIndex] > array[largest] )
         largest = startIndex;
     
     if (endIndex < heapSize && array[endIndex] > array[largest])
