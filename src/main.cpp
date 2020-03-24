@@ -6,15 +6,42 @@
 #include "../inc/SortingAlgorithms.hh"
 
 
+template <typename T>
+class ArraySet
+{
+private:
+    T arrays10K[100];
+    T arrays50K[100];
+    T arrays100K[100];
+    T arrays500K[100];
+    T arrays1M[100];
+public:
+    ArraySet();
+    void SortArrays(const char alogrithm, const char order);
+};
+
+template <typename T>
+void ArraySet<T>::SortArrays(const char algorithm, const char order)
+{
+    Quicksort(arrays10K, 0, 10000, order);
+}
+
+
+
+
+
+
+
+
 bool AlgorithmTest(int retries)
 {
-    int length = 1000;
-    int* testArray = ArrayTools::Create<int>(length);
+    int length = 100;
+    int* testArray = Create<int>(length);
     for (int i=0; i <= retries; i++)
     {
-        ArrayTools::Fill(testArray, length-1, 0, '<');
-        Quicksort(testArray, 0, length-1, '<');
-        if (!ArrayTools::IsSorted(testArray, length-1, '<'))
+        Fill(testArray, length-1, 0, '<');
+        Heapsort(testArray, 0, length-1, '<');
+        if (!IsSorted(testArray, length-1, '<'))
         {
             return false;
         }
@@ -41,12 +68,6 @@ void TestNotification(int retries)
 
 int main()
 {
-
     srand(time(NULL));
-
-
     TestNotification(10);
-
-    
-
 }

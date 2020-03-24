@@ -22,14 +22,27 @@ void Quicksort(T* array, int startIndex, int endIndex, const char order)
 template <typename T>
 void Heapsort(T* array, int startIndex, int endIndex, const char order)
 {
-
+    for (int i = endIndex/2; i>= 0; i--)
+        Heapify(array, endIndex, i);
+    for (int i = endIndex; i>=0; i--)
+    {
+            SwapValues(array[0], array[i]);
+            Heapify(array, i, 0);
+    }
 }
 
 
 template <typename T>
 void Mergesort(T* array, int startIndex, int endIndex, const char order)
 {
-
+    int middleIndex;
+    if (startIndex != endIndex)
+    {
+        middleIndex = (startIndex+endIndex)/2;
+        Mergesort(array, startIndex, middleIndex, order);
+        Mergesort(array, middleIndex+1, endIndex, order);
+        MergeArrays(array, startIndex, middleIndex, endIndex, order);
+    }
 }
 
 
