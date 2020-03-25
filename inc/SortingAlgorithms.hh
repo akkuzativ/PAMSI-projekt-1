@@ -64,17 +64,19 @@ void Insertionsort(T* array, int startIndex, int endIndex, const char order)
 template <typename T>
 void Introsort(T* array, int startIndex, int endIndex, int depth, const char order)
 {
-    if (depth <= 0)
+    while (endIndex - startIndex > 0)
     {
-        Heapsort(array, startIndex, endIndex, order);
-    }
-    else
-    {
-        int i = Partition(array, startIndex, endIndex, order);
-        if (i>9)
-            Introsort(array, startIndex, i, depth-1, order);
-        if (endIndex-1-i>9)
-            Introsort(array, startIndex+i+1, endIndex-1, depth-1, order);
+        if (depth == 0)
+            Heapsort(array, startIndex, endIndex, order);
+        else
+        {
+            if (IsSorted(array, endIndex, order))
+                break;
+            int pivotIndex = Partition(array, startIndex, endIndex, order);
+            Introsort(array, pivotIndex+1, endIndex, depth-1,));
+            endIndex = pivotIndex -1;
+        }
+        
     }
 }
 
