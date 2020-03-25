@@ -6,54 +6,77 @@
 #include "../inc/SortingAlgorithms.hh"
 
 
-template <typename T>
-class ArraySet
+
+
+bool QuicksortTest(int retries)
 {
-private:
-    T arrays10K[100];
-    T arrays50K[100];
-    T arrays100K[100];
-    T arrays500K[100];
-    T arrays1M[100];
-public:
-    ArraySet();
-    void SortArrays(const char alogrithm, const char order);
-};
-
-template <typename T>
-void ArraySet<T>::SortArrays(const char algorithm, const char order)
-{
-    Quicksort(arrays10K, 0, 10000, order);
-}
-
-
-
-
-
-
-
-
-bool AlgorithmTest(int retries)
-{
-    int length = 100;
+    int length = 1000000;
     int* testArray = Create<int>(length);
     for (int i=0; i <= retries; i++)
     {
         Fill(testArray, length-1, 0, '<');
-        Introsort(testArray, 0, length-1, 50, '<');
+        Quicksort(testArray, 0, length-1, '<');
         if (!IsSorted(testArray, length-1, '<'))
         {
             return false;
         }
-        std::cout << i << std::endl;
+        std::cout << i << '\n';
     }
-    //std:: cout << (time2 - time1) << "s" << std::endl;
     return true;
 }
 
-void TestNotification(int retries)
+
+bool MergesortTest(int retries)
 {
-    if (AlgorithmTest(retries))
+    int length = 1000000;
+    int* testArray = Create<int>(length);
+    for (int i=0; i <= retries; i++)
+    {
+        Fill(testArray, length-1, 0, '<');
+        Mergesort(testArray, 0, length-1, '<');
+        if (!IsSorted(testArray, length-1, '<'))
+        {
+            return false;
+        }
+        std::cout << i << '\n';
+    }
+    return true;
+}
+
+
+bool HybridIntrosortTest(int retries)
+{
+    int length = 1000000;
+    int* testArray = Create<int>(length);
+    for (int i=0; i <= retries; i++)
+    {
+        Fill(testArray, length-1, 0, '<');
+        HybridIntrosort(testArray, 0, length-1, '<');
+        if (!IsSorted(testArray, length-1, '<'))
+        {
+            return false;
+        }
+        std::cout << i << '\n';
+    }
+    return true;
+}
+
+void TestNotification(int retries, const char algLetter)
+{
+    bool AlgorithmTestResult;
+    switch(algLetter)
+    {
+      case 'q':
+        AlgorithmTestResult = QuicksortTest(retries);
+        break;
+      case 'i':
+        AlgorithmTestResult = HybridIntrosortTest(retries);
+        break;
+      case 'm':
+        AlgorithmTestResult = MergesortTest(retries);
+        break;
+    }
+    if (AlgorithmTestResult)
     {
         std::cerr << "Posortowana" << std::endl;
     }
@@ -66,8 +89,8 @@ void TestNotification(int retries)
 
 
 
-int main()
+int main(int argc, char *argv[])
 {
     srand(time(NULL));
-    TestNotification(50);
+    TestNotification(500, *argv[1]);
 }

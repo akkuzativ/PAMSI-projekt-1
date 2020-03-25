@@ -52,15 +52,15 @@ template <typename T>
 void Heapify(T* array, int heapSize, int heapRoot)
 {
     int largest = heapRoot;
-    int startIndex = 2*heapRoot + 1;
-    int endIndex = 2*heapRoot + 2;
+    int leftChildIndex = 2*heapRoot;
+    int rightChildIndex = 2*heapRoot+1;
 
-    if (startIndex < heapSize && array[startIndex] > array[largest] )
-        largest = startIndex;
-    
-    if (endIndex < heapSize && array[endIndex] > array[largest])
-        largest = endIndex;
-    
+    if (leftChildIndex < heapSize && array[leftChildIndex] > array[largest])
+        largest = leftChildIndex;
+
+    if (rightChildIndex < heapSize && array[rightChildIndex] > array[largest])
+        largest = rightChildIndex;
+
     if (largest != heapRoot)
     {
         SwapValues(array[heapRoot], array[largest]);
