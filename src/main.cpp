@@ -35,12 +35,12 @@ void ArraySet<T>::SortArrays(const char algorithm, const char order)
 
 bool AlgorithmTest(int retries)
 {
-    int length = 90000;
+    int length = 100000;
     int* testArray = Create<int>(length);
     for (int i=0; i <= retries; i++)
     {
         Fill(testArray, length-1, 0, '<');
-        Insertionsort(testArray, 0, length-1, '<');
+        Heapsort(testArray, 0, length-1, '<');
         if (!IsSorted(testArray, length-1, '<'))
         {
             return false;
@@ -69,5 +69,5 @@ void TestNotification(int retries)
 int main()
 {
     srand(time(NULL));
-    TestNotification(10);
+    TestNotification(50);
 }
