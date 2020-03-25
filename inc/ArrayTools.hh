@@ -38,10 +38,10 @@ bool IsSorted(T* array, int endIndex, const char order)
 
 
 template <typename T>
-void PrintFormatted(T* array, int endIndex)
+void PrintFormatted(T* array, int startIndex, int endIndex)
 {
-    std::cout << '{' << array[0];
-    for (int i = 1; i <= endIndex; i++)
+    std::cout << '{' << array[startIndex];
+    for (int i = startIndex+1; i <= endIndex; i++)
     {
         std::cout << ',' << array[i];
     }

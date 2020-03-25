@@ -8,19 +8,19 @@
 
 
 template <typename T>
-void Quicksort(T* array, int startIndex, int endIndex, const char order)
+void Quicksort(T* array, int startIndex, int endIndex)
 {
     if(startIndex < endIndex)
     {
-        int pivotIndex = Partition(array, startIndex, endIndex, order);
-        Quicksort(array,  startIndex, pivotIndex-1, order);
-        Quicksort(array, pivotIndex+1, endIndex, order);
+        int pivotIndex = Partition(array, startIndex, endIndex);
+        Quicksort(array,  startIndex, pivotIndex-1);
+        Quicksort(array, pivotIndex+1, endIndex);
     }
 }
 
 
 template <typename T>
-void Heapsort(T* array, int startIndex, int endIndex, const char order)
+void Heapsort(T* array, int startIndex, int endIndex)
 {
     for (int i = endIndex/2+1; i>= startIndex; i--)
         Heapify(array, endIndex, i);
@@ -34,21 +34,21 @@ void Heapsort(T* array, int startIndex, int endIndex, const char order)
 
 
 template <typename T>
-void Mergesort(T* array, int startIndex, int endIndex, const char order)
+void Mergesort(T* array, int startIndex, int endIndex)
 {
     int middleIndex;
     if (startIndex != endIndex)
     {
         middleIndex = (startIndex+endIndex)/2;
-        Mergesort(array, startIndex, middleIndex, order);
-        Mergesort(array, middleIndex+1, endIndex, order);
-        MergeArrays(array, startIndex, middleIndex, endIndex, order);
+        Mergesort(array, startIndex, middleIndex);
+        Mergesort(array, middleIndex+1, endIndex);
+        MergeArrays(array, startIndex, middleIndex, endIndex);
     }
 }
 
 
 template <typename T>
-void Insertionsort(T* array, int startIndex, int endIndex, const char order)
+void Insertionsort(T* array, int startIndex, int endIndex)
 {
     int j;
     T helper;
@@ -63,25 +63,25 @@ void Insertionsort(T* array, int startIndex, int endIndex, const char order)
 }
 
 template <typename T>
-void Introsort(T* array, int startIndex, int endIndex, int depth, const char order)
+void Introsort(T* array, int startIndex, int endIndex, int depth)
 {
     if (depth<=0)
     {
-        Heapsort(array, startIndex, endIndex, order);
+        Heapsort(array, startIndex, endIndex);
         return;
     }
-    int i = Partition(array, startIndex, endIndex, order);
+    int i = Partition(array, startIndex, endIndex);
     if (i>9)
-        Introsort(array, startIndex, i, depth-1, order);
+        Introsort(array, startIndex, i, depth-1);
     if (endIndex-1-i>9)
-        Introsort(array, startIndex+i+1, endIndex-1-i, depth-1, order);
+        Introsort(array, startIndex+i+1, endIndex-1-i, depth-1);
 }
 
 template <typename T>
-void HybridIntrosort(T* array, int startIndex, int endIndex, const char order)
+void HybridIntrosort(T* array, int startIndex, int endIndex)
 {
-  Introsort(array, startIndex, endIndex, (int)floor(2*log(endIndex)/M_LN2), order);
-  Quicksort(array, startIndex, endIndex, order);
+  Introsort(array, startIndex, endIndex, (int)floor(2*log(endIndex)/M_LN2));
+  Quicksort(array, startIndex, endIndex);
 }
  
 

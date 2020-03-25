@@ -4,7 +4,7 @@
 #include "../inc/ArrayTools.hh"
 
 template <typename T>
-int Partition(T* array, int startIndex, int endIndex, const char order)
+int Partition(T* array, int startIndex, int endIndex)
 {
     int pivotIndex = (endIndex+startIndex)/2;
     T pivotValue = array[pivotIndex];
@@ -25,7 +25,7 @@ int Partition(T* array, int startIndex, int endIndex, const char order)
 
 
 template <typename T>
-void MergeArrays(T* array, int startIndex, int middleIndex, int endIndex, char order)
+void MergeArrays(T* array, int startIndex, int middleIndex, int endIndex)
 {
     T* helperArray = Create<T>(endIndex+1);
     int i = startIndex;
@@ -54,13 +54,10 @@ void Heapify(T* array, int heapSize, int heapRoot)
     int largest = heapRoot;
     int leftChildIndex = 2*heapRoot;
     int rightChildIndex = 2*heapRoot+1;
-
     if (leftChildIndex < heapSize && array[leftChildIndex] > array[largest])
         largest = leftChildIndex;
-
     if (rightChildIndex < heapSize && array[rightChildIndex] > array[largest])
         largest = rightChildIndex;
-
     if (largest != heapRoot)
     {
         SwapValues(array[heapRoot], array[largest]);
