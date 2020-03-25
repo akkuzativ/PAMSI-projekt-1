@@ -35,17 +35,17 @@ void ArraySet<T>::SortArrays(const char algorithm, const char order)
 
 bool AlgorithmTest(int retries)
 {
-    int length = 100;
+    int length = 90000;
     int* testArray = Create<int>(length);
     for (int i=0; i <= retries; i++)
     {
         Fill(testArray, length-1, 0, '<');
-        Heapsort(testArray, 0, length-1, '<');
+        Insertionsort(testArray, 0, length-1, '<');
         if (!IsSorted(testArray, length-1, '<'))
         {
             return false;
         }
-        //std::cout << i << std::endl;
+        std::cout << i << std::endl;
     }
     //std:: cout << (time2 - time1) << "s" << std::endl;
     return true;

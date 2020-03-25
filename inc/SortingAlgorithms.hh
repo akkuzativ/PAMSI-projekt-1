@@ -47,6 +47,21 @@ void Mergesort(T* array, int startIndex, int endIndex, const char order)
 
 
 template <typename T>
+void Insertionsort(T* array, int startIndex, int endIndex, const char order)
+{
+    int j;
+    T helper;
+    for (int i = startIndex; i <= endIndex; i++)
+    {
+        helper = array[i];
+        for (j = i; j>0 && helper < array[j-1]; j--)
+            array[j] = array[j-1];
+        array[j] = helper;
+    }
+
+}
+
+template <typename T>
 void Introsort(T* array, int startIndex, int endIndex, const char order)
 {
 
