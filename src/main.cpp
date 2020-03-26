@@ -3,6 +3,7 @@
 #include <ctime>
 #include <fstream>
 #include <ios>
+#include <string>
 
 #include "../inc/ArrayTools.hh"
 #include "../inc/SortingAlgorithms.hh"
@@ -11,29 +12,57 @@
 
 int main()
 {
-    srand(time(NULL));
-    ArraySet<int> Set1;
-    Set1.TestQuicksort("test", 0, '<');
-/*
-    int* testArray1 = Create<int>(10000);
-    Fill(testArray1, 10000-1, 0, '<');
-    int* testArray2 = Create<int>(50000);
-    Fill(testArray2, 50000-1, 0, '<');
-    int* testArray3 = Create<int>(100000);
-    Fill(testArray3, 100000-1, 0, '<');
-    int* testArray4 = Create<int>(500000);
-    Fill(testArray4, 500000-1, 0, '<');
-    int* testArray5 = Create<int>(1000000);
-    Fill(testArray5, 1000000-1, 0, '<');
 
-    for (int i=0; i <= 99; i++)
+    char userChoice;
+
+    std::cout << "===========================================" << std::endl;
+    std::cout << "Prosty manager testow algorytmow sortowania" << std::endl;
+    std::cout << "===========================================" << std::endl;
+    std::cout << std::endl;
+    std::cout << "q - Testuj algorytm quicksort" << std::endl;
+    std::cout << "m - Testuj algorytm mergesort" << std::endl;
+    std::cout << "h - Testuj algorytm heapsort" << std::endl;
+    std::cout << "e - Wyjscie" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Twoj wybor > ";
+    std::cin >> userChoice;
+
+    ArraySet<int> UniversalArraySet;
+    float sortedPercentset[7] = {0, 25, 50, 75, 95, 99, 99.7};
+
+    while (userChoice != 'e')
     {
-        Quicksort(testArray1, 0, 10000-1);
-        Quicksort(testArray2, 0, 50000-1);
-        Quicksort(testArray3, 0, 100000-1);
-        Quicksort(testArray4, 0, 500000-1);
-        Quicksort(testArray5, 0, 1000000-1);
+        switch(userChoice)
+        {
+          case 'q':
+            std::cout << "Rozpoczynam test algorytmu quicksort:" << std::endl;
+            for (int i=0; i <= 6; i++ )
+                UniversalArraySet.TestQuicksort("Quicksort.txt", sortedPercentset[i], '<');   
+            UniversalArraySet.TestQuicksort("Quicksort.txt", 100, '>');
+            std::cout << "Test Zakonczony" << std::endl;
+            break;
+         case 'm':
+            std::cout << "Rozpoczynam test algorytmu mergesort:" << std::endl;
+            for (int i=0; i <= 6; i++ )
+                UniversalArraySet.TestMergesort("Mergesort.txt", sortedPercentset[i], '<');   
+            UniversalArraySet.TestMergesort("Mergesort.txt", 100, '>');
+            std::cout << "Test Zakonczony" << std::endl;
+          break;
+        case 'h':
+            std::cout << "Rozpoczynam test algorytmu heapsort:" << std::endl;
+            for (int i=0; i <= 6; i++ )
+                UniversalArraySet.TestHeapsort("Heapsort.txt", sortedPercentset[i], '<');   
+            UniversalArraySet.TestHeapsort("Heapsort.txt", 100, '>');
+            std::cout << "Test Zakonczony" << std::endl;
+          break;
+        case 'e':
+            std::cout << "Zamykam program..." << std::endl;
+            break;
+        default:
+            std::cout << "Nie rozpoznano polecenia" << std::endl;
+            break;
+        }
     }
 
-*/
+ 
 }
