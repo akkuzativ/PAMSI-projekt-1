@@ -4,6 +4,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <ctime>
 
 
 
@@ -52,6 +53,7 @@ void PrintFormatted(T* array, int startIndex, int endIndex)
 template <typename T>
 void Fill(T* array, int endIndex, float percentSorted, const char order)
 {
+    std::srand(time(NULL));
     for (int i=0; i<=endIndex; i++)
     {
         array[i] = rand();
