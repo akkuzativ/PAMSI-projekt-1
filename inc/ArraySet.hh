@@ -21,9 +21,7 @@ private:
     int sizes[5] = {10000, 50000, 100000, 500000, 1000000};
 public:
     ArraySet();
-    bool TestQuicksort(std::string filename, float percentSorted, const char order);
-    bool TestMergesort(std::string filename, float percentSorted, const char order);
-    bool TestHeapsort(std::string filename, float percentSorted, const char order); 
+    bool Test(char algorithmLetter, std::string filename, float percentSorted, const char order);
 };
 
 template <typename T>
@@ -40,11 +38,11 @@ ArraySet<T>::ArraySet()
 
 
 template <typename T>
-bool ArraySet<T>::TestQuicksort(std::string filename, float percentSorted, const char order)
+bool ArraySet<T>::Test(char algorithmLetter, std::string filename, float percentSorted, const char order)
 {
     std::ofstream resultsFile;
     resultsFile.open(filename,  std::ios::out | std::ios::app);
-    resultsFile << std::endl << "Testowany algorytm: Quicksort (sortowanie szybkie)" << std::endl;
+    resultsFile << "Testowany algorytm: "<< algorithmLetter << std::endl;
     resultsFile << "procent wstepnego posortowania: " << percentSorted << ", kolejnosc: " << order << std::endl;
 
     for (int i=0; i<=4; i++)
@@ -54,17 +52,50 @@ bool ArraySet<T>::TestQuicksort(std::string filename, float percentSorted, const
             Fill<T>(arraySet[i][j], sizes[i]-1, percentSorted, order);
         }
     }
-    for (int i=0; i<=4; i++)
+    switch(algorithmLetter)
     {
-        auto sortingStart = std::chrono::high_resolution_clock::now();
-        for (int j=0; j<=100-1; j++)
+      case 'q':
+        for (int i=0; i<=4; i++)
         {
-            Quicksort(arraySet[i][j], 0, sizes[i]-1);
+            auto sortingStart = std::chrono::high_resolution_clock::now();
+            for (int j=0; j<=100-1; j++)
+            {
+                Quicksort(arraySet[i][j], 0, sizes[i]-1);
+            }
+            auto sortingEnd = std::chrono::high_resolution_clock::now();
+            auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
+            resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
+            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
         }
-        auto sortingEnd = std::chrono::high_resolution_clock::now();
-        auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
-        resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
-        resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
+        break;
+      case 'm':
+        for (int i=0; i<=4; i++)
+        {
+            auto sortingStart = std::chrono::high_resolution_clock::now();
+            for (int j=0; j<=100-1; j++)
+            {
+                Mergesort(arraySet[i][j], 0, sizes[i]-1);
+            }
+            auto sortingEnd = std::chrono::high_resolution_clock::now();
+            auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
+            resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
+            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
+        }
+        break;
+      case 'i':
+        for (int i=0; i<=4; i++)
+        {
+            auto sortingStart = std::chrono::high_resolution_clock::now();
+            for (int j=0; j<=100-1; j++)
+            {
+                Introsort(arraySet[i][j], 0, sizes[i]-1);
+            }
+            auto sortingEnd = std::chrono::high_resolution_clock::now();
+            auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
+            resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
+            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
+        }
+        break;
     }
     for (int i=0; i<=4; i++)
     {
@@ -78,97 +109,9 @@ bool ArraySet<T>::TestQuicksort(std::string filename, float percentSorted, const
             }
         }
     }
-    resultsFile << "  Posortowanie wykonano poprawnie." << std::endl;
+    resultsFile << "  Posortowanie wykonano poprawnie." << std::endl << std::endl;
     resultsFile.close();
     return true;   
-}
-
-
-template <typename T>
-bool ArraySet<T>::TestMergesort(std::string filename, float percentSorted, const char order)
-{
-    std::ofstream resultsFile;
-    resultsFile.open(filename,  std::ios::out | std::ios::app);
-    resultsFile  << std::endl << "Testowany algorytm: Mergesort (sortowanie przez scalanie)" << std::endl;
-    resultsFile << "procent wstepnego posortowania: " << percentSorted << ", kolejnosc: " << order << std::endl;
-    for (int i=0; i<=4; i++)
-    {
-        for (int j=0; j<=100-1; j++)
-        {
-            Fill<T>(arraySet[i][j], sizes[i]-1, percentSorted, order);
-        }
-    }
-    for (int i=0; i<=4; i++)
-    {
-        auto sortingStart = std::chrono::high_resolution_clock::now();
-        for (int j=0; j<=100-1; j++)
-        {
-            Mergesort(arraySet[i][j], 0, sizes[i]-1);
-        }
-        auto sortingEnd = std::chrono::high_resolution_clock::now();
-        auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
-        resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
-        resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
-    }
-    for (int i=0; i<=4; i++)
-    {
-        for (int j=0; j<=100-1; j++)
-        {
-            if(IsSorted(arraySet[i][j], 0, sizes[i]-1) == false)
-            {
-                resultsFile << "  (!) Proces nie powiodl sie, elementy nie sa posortowane w 100%." << std::endl;
-                resultsFile.close();
-                return false;
-            }
-        }
-    }
-    resultsFile << "  Posortowanie wykonano poprawnie." << std::endl;
-    resultsFile.close();
-    return true;  
-}
-
-
-template <typename T>
-bool ArraySet<T>::TestHeapsort(std::string filename, float percentSorted, const char order)
-{
-    std::ofstream resultsFile;
-    resultsFile.open(filename,  std::ios::out | std::ios::app);
-    resultsFile << std::endl << "Testowany algorytm: Heapsort (sortowanie przez kopcowanie)" << std::endl;
-    resultsFile << "procent wstepnego posortowania: " << percentSorted << ", kolejnosc: " << order << std::endl;
-    for (int i=0; i<=4; i++)
-    {
-        for (int j=0; j<=100-1; j++)
-        {
-            Fill<T>(arraySet[i][j], sizes[i]-1, percentSorted, order);
-        }
-    }
-    for (int i=0; i<=4; i++)
-    {
-        auto sortingStart = std::chrono::high_resolution_clock::now();
-        for (int j=0; j<=100-1; j++)
-        {
-            Heapsort(arraySet[i][j], 0, sizes[i]-1);
-        }
-        auto sortingEnd = std::chrono::high_resolution_clock::now();
-        auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
-        resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
-        resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
-    }
-    for (int i=0; i<=4; i++)
-    {
-        for (int j=0; j<=100-1; j++)
-        {
-            if(IsSorted(arraySet[i][j], 0, sizes[i]-1) == false)
-            {
-                resultsFile << "  (!) Proces nie powiodl sie, elementy nie sa posortowane w 100%." << std::endl;
-                resultsFile.close();
-                return false;
-            }
-        }
-    }
-    resultsFile << "  Posortowanie wykonano poprawnie." << std::endl;
-    resultsFile.close();
-    return true;
 }
 
 

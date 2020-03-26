@@ -25,17 +25,22 @@ void Heapsort(T* array, int startIndex, int endIndex)
     int heapSize = endIndex-startIndex+1;
     T* helperArray = Create<T>(heapSize);
     for(int i = 0; i <= endIndex-startIndex; i++)
+    {
         helperArray[i] = array[startIndex+i];
-
+    }
     for (int i = (heapSize-1)/2; i >= 0; i--)
+    {
         Heapify(helperArray, heapSize, i);
+    }
     for (int i = heapSize-1; i >= 0; i--)
     {
         SwapValues(helperArray[0], helperArray[i]);
         Heapify(helperArray, i, 0);
     }
     for (int i = 0; i <= (endIndex-startIndex); i++)
+    {
         array[startIndex+i] = helperArray[i];
+    }
     delete[] helperArray;
 }
 
@@ -62,8 +67,10 @@ void Insertionsort(T* array, int startIndex, int endIndex)
     for (int i = startIndex; i <= endIndex; i++)
     {
         helper = array[i];
-        for (j = i; j>0 && helper < array[j-1]; j--)
+        for (j = i; j > 0 && helper < array[j-1]; j--)
+        {
             array[j] = array[j-1];
+        }
         array[j] = helper;
     }
 

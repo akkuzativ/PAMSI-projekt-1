@@ -1,0 +1,112 @@
+Testowany algorytm: q
+procent wstepnego posortowania: 0, kolejnosc: <
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 122986 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 702771 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 1542994 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 8375836 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 17878565 mikrosekund
+  Posortowanie wykonano poprawnie.
+
+Testowany algorytm: q
+procent wstepnego posortowania: 25, kolejnosc: <
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 118827 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 679635 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 1461663 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 8339172 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 17654134 mikrosekund
+  Posortowanie wykonano poprawnie.
+
+Testowany algorytm: q
+procent wstepnego posortowania: 50, kolejnosc: <
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 138705 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 758855 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 14366677 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 41789099 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 102065011 mikrosekund
+  Posortowanie wykonano poprawnie.
+
+Testowany algorytm: q
+procent wstepnego posortowania: 75, kolejnosc: <
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 94025 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 569218 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 1185361 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 6913614 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 14550647 mikrosekund
+  Posortowanie wykonano poprawnie.
+
+Testowany algorytm: q
+procent wstepnego posortowania: 95, kolejnosc: <
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 89698 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 535902 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 1153103 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 6822227 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 14327569 mikrosekund
+  Posortowanie wykonano poprawnie.
+
+Testowany algorytm: q
+procent wstepnego posortowania: 99, kolejnosc: <
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 77491 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 446441 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 960128 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 5702981 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 12341185 mikrosekund
+  Posortowanie wykonano poprawnie.
+
+Testowany algorytm: q
+procent wstepnego posortowania: 99.7, kolejnosc: <
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 70257 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 420912 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 878606 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 5119742 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 11012928 mikrosekund
+  Posortowanie wykonano poprawnie.
+
+Testowany algorytm: q
+procent wstepnego posortowania: 100, kolejnosc: >
+ rozmiar tablicy: 10000
+ laczny czas sortowania zestawu 100 tablic: 56387 mikrosekund
+ rozmiar tablicy: 50000
+ laczny czas sortowania zestawu 100 tablic: 329806 mikrosekund
+ rozmiar tablicy: 100000
+ laczny czas sortowania zestawu 100 tablic: 690468 mikrosekund
+ rozmiar tablicy: 500000
+ laczny czas sortowania zestawu 100 tablic: 3882778 mikrosekund
+ rozmiar tablicy: 1000000
+ laczny czas sortowania zestawu 100 tablic: 8050980 mikrosekund
+  Posortowanie wykonano poprawnie.
+
