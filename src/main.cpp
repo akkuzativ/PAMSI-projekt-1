@@ -25,13 +25,13 @@ int main()
     std::cout << "e - Wyjscie" << std::endl;
     std::cout << std::endl;
     std::cout << "Twoj wybor > ";
-    std::cin >> userChoice;
 
     ArraySet<int> UniversalArraySet;
     float sortedPercentset[7] = {0, 25, 50, 75, 95, 99, 99.7};
 
-    while (userChoice != 'e')
+    do
     {
+        std::cin >> userChoice;
         switch(userChoice)
         {
           case 'q':
@@ -62,7 +62,7 @@ int main()
             std::cout << "Nie rozpoznano polecenia" << std::endl;
             break;
         }
-    }
+    } while (userChoice != 'e');
 
  
 }
