@@ -54,7 +54,6 @@ bool ArraySet<T>::TestQuicksort(std::string filename, float percentSorted, const
             Fill<T>(arraySet[i][j], sizes[i]-1, percentSorted, order);
         }
     }
-
     for (int i=0; i<=4; i++)
     {
         auto sortingStart = std::chrono::high_resolution_clock::now();
@@ -67,8 +66,6 @@ bool ArraySet<T>::TestQuicksort(std::string filename, float percentSorted, const
         resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
         resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
     }
-
-
     for (int i=0; i<=4; i++)
     {
         for (int j=0; j<=100-1; j++)
@@ -81,11 +78,9 @@ bool ArraySet<T>::TestQuicksort(std::string filename, float percentSorted, const
             }
         }
     }
-
     resultsFile << "  Posortowanie wykonano poprawnie." << std::endl;
     resultsFile.close();
-    return true;
-    
+    return true;   
 }
 
 
@@ -96,7 +91,6 @@ bool ArraySet<T>::TestMergesort(std::string filename, float percentSorted, const
     resultsFile.open(filename,  std::ios::out | std::ios::app);
     resultsFile  << std::endl << "Testowany algorytm: Mergesort (sortowanie przez scalanie)" << std::endl;
     resultsFile << "procent wstepnego posortowania: " << percentSorted << ", kolejnosc: " << order << std::endl;
-
     for (int i=0; i<=4; i++)
     {
         for (int j=0; j<=100-1; j++)
@@ -104,7 +98,6 @@ bool ArraySet<T>::TestMergesort(std::string filename, float percentSorted, const
             Fill<T>(arraySet[i][j], sizes[i]-1, percentSorted, order);
         }
     }
-
     for (int i=0; i<=4; i++)
     {
         auto sortingStart = std::chrono::high_resolution_clock::now();
@@ -117,8 +110,6 @@ bool ArraySet<T>::TestMergesort(std::string filename, float percentSorted, const
         resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
         resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
     }
-
-
     for (int i=0; i<=4; i++)
     {
         for (int j=0; j<=100-1; j++)
@@ -131,11 +122,9 @@ bool ArraySet<T>::TestMergesort(std::string filename, float percentSorted, const
             }
         }
     }
-
     resultsFile << "  Posortowanie wykonano poprawnie." << std::endl;
     resultsFile.close();
-    return true;
-    
+    return true;  
 }
 
 
@@ -146,7 +135,6 @@ bool ArraySet<T>::TestHeapsort(std::string filename, float percentSorted, const 
     resultsFile.open(filename,  std::ios::out | std::ios::app);
     resultsFile << std::endl << "Testowany algorytm: Heapsort (sortowanie przez kopcowanie)" << std::endl;
     resultsFile << "procent wstepnego posortowania: " << percentSorted << ", kolejnosc: " << order << std::endl;
-
     for (int i=0; i<=4; i++)
     {
         for (int j=0; j<=100-1; j++)
@@ -154,7 +142,6 @@ bool ArraySet<T>::TestHeapsort(std::string filename, float percentSorted, const 
             Fill<T>(arraySet[i][j], sizes[i]-1, percentSorted, order);
         }
     }
-
     for (int i=0; i<=4; i++)
     {
         auto sortingStart = std::chrono::high_resolution_clock::now();
@@ -167,8 +154,6 @@ bool ArraySet<T>::TestHeapsort(std::string filename, float percentSorted, const 
         resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
         resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
     }
-
-
     for (int i=0; i<=4; i++)
     {
         for (int j=0; j<=100-1; j++)
@@ -181,11 +166,10 @@ bool ArraySet<T>::TestHeapsort(std::string filename, float percentSorted, const 
             }
         }
     }
-
     resultsFile << "  Posortowanie wykonano poprawnie." << std::endl;
     resultsFile.close();
     return true;
-    
 }
+
 
 #endif

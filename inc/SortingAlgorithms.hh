@@ -22,14 +22,21 @@ void Quicksort(T* array, int startIndex, int endIndex)
 template <typename T>
 void Heapsort(T* array, int startIndex, int endIndex)
 {
-    for (int i = endIndex/2+1; i>= startIndex; i--)
-        Heapify(array, endIndex, i);
+    int heapSize = endIndex-startIndex+1;
+    T* helperArray = Create<T>(heapSize);
+    for(int i = 0; i <= endIndex-startIndex; i++)
+        helperArray[i] = array[startIndex+i];
 
-    for (int i = endIndex+1; i >= startIndex; i--)
+    for (int i = (heapSize-1)/2; i >= 0; i--)
+        Heapify(helperArray, heapSize, i);
+    for (int i = heapSize-1; i >= 0; i--)
     {
-        SwapValues(array[startIndex], array[i]);
-        Heapify(array, i, startIndex);
+        SwapValues(helperArray[0], helperArray[i]);
+        Heapify(helperArray, i, 0);
     }
+    for (int i = 0; i <= (endIndex-startIndex); i++)
+        array[startIndex+i] = helperArray[i];
+    delete[] helperArray;
 }
 
 
@@ -62,26 +69,34 @@ void Insertionsort(T* array, int startIndex, int endIndex)
 
 }
 
-template <typename T>
-void Introsort(T* array, int startIndex, int endIndex, int depth)
-{
-    if (depth<=0)
-    {
-        Heapsort(array, startIndex, endIndex);
-        return;
-    }
-    int i = Partition(array, startIndex, endIndex);
-    if (i>9)
-        Introsort(array, startIndex, i, depth-1);
-    if (endIndex-1-i>9)
-        Introsort(array, startIndex+i+1, endIndex-1-i, depth-1);
-}
 
 template <typename T>
-void HybridIntrosort(T* array, int startIndex, int endIndex)
+void IntrosortR(T* array, int startIndex, int endIndex, int depth)
 {
-  Introsort(array, startIndex, endIndex, (int)floor(2*log(endIndex)/M_LN2));
-  Quicksort(array, startIndex, endIndex);
+    if ((endIndex-startIndex) < 16)
+    {
+        Insertionsort(array, startIndex, endIndex);
+    }
+    else if (depth == 0)
+    {
+        Heapsort(array, startIndex, endIndex);
+    }
+    else
+    {
+        int pivotIndex = Partition(array, startIndex, endIndex);
+        IntrosortR(array, startIndex, pivotIndex-1, depth-1);
+        IntrosortR(array, pivotIndex+1, endIndex, depth-1);
+    }
+    
+}
+
+
+template <typename T>
+void Introsort(T* array, int startIndex, int endIndex)
+{
+    int depth = log(endIndex+1)*2;
+    IntrosortR(array, startIndex, endIndex, depth);
+ 
 }
  
 

@@ -13,6 +13,28 @@
 int main()
 {
 
+    int N=10000;
+    int* introTestArraySet[100];
+    for(int i = 0; i <= 99; i++)
+    {
+        introTestArraySet[i] = Create<int>(N);
+    }
+    for(int i = 0; i <= 99; i++)
+    {
+        Fill(introTestArraySet[i], N-1, 0, '<');
+    }
+    for(int i = 0; i <= 99; i++)
+    {
+        Introsort(introTestArraySet[i], 0, N-1);
+        if (IsSorted(introTestArraySet[i], N-1, '<'))
+            std::cout << "Posortowalo dobrze" << std::endl;
+        else
+            std::cout << "Nie posortowalo poprawnie" << std::endl;
+    }
+
+
+ /*
+
     char userChoice;
 
     std::cout << "===========================================" << std::endl;
@@ -63,6 +85,6 @@ int main()
             break;
         }
     } while (userChoice != 'e');
-
+*/
  
 }
