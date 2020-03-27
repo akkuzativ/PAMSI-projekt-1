@@ -66,7 +66,6 @@ bool IsSorted(T* array, int endIndex, const char order)
 template <typename T>
 void Fill(T* array, int endIndex, float percentSorted, const char order)
 {
-    std::srand(time(NULL));
     for (int i = 0; i <= endIndex; i++)
     {
         array[i] = std::rand();

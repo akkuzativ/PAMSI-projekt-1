@@ -6,7 +6,7 @@
 template <typename T>
 int Partition(T* array, int startIndex, int endIndex)
 {
-    int pivotIndex = (endIndex+startIndex)/2;
+    int pivotIndex = rand() % (endIndex-startIndex+1) + startIndex;
     T pivotValue = array[pivotIndex];
     SwapValues(array[pivotIndex], array[endIndex]);
     int currentPosition = startIndex;

@@ -63,9 +63,9 @@ bool ArraySet<T>::Test(char algorithmLetter, std::string filename, float percent
                 Quicksort(arraySet[i][j], 0, sizes[i]-1);
             }
             auto sortingEnd = std::chrono::high_resolution_clock::now();
-            auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
+            auto sortingDuration = std::chrono::duration_cast<std::chrono::milliseconds>(sortingEnd - sortingStart);
             resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
-            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
+            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " milisekund" << std::endl;
         }
         break;
       case 'm':
@@ -77,9 +77,9 @@ bool ArraySet<T>::Test(char algorithmLetter, std::string filename, float percent
                 Mergesort(arraySet[i][j], 0, sizes[i]-1);
             }
             auto sortingEnd = std::chrono::high_resolution_clock::now();
-            auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
+            auto sortingDuration = std::chrono::duration_cast<std::chrono::milliseconds>(sortingEnd - sortingStart);
             resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
-            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
+            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " milisekund" << std::endl;
         }
         break;
       case 'i':
@@ -91,9 +91,9 @@ bool ArraySet<T>::Test(char algorithmLetter, std::string filename, float percent
                 Introsort(arraySet[i][j], 0, sizes[i]-1);
             }
             auto sortingEnd = std::chrono::high_resolution_clock::now();
-            auto sortingDuration = std::chrono::duration_cast<std::chrono::microseconds>(sortingEnd - sortingStart);
+            auto sortingDuration = std::chrono::duration_cast<std::chrono::milliseconds>(sortingEnd - sortingStart);
             resultsFile << " rozmiar tablicy: " << sizes[i] << std::endl;
-            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " mikrosekund" << std::endl;
+            resultsFile << " laczny czas sortowania zestawu 100 tablic: " << sortingDuration.count() << " milisekund" << std::endl;
         }
         break;
     }
